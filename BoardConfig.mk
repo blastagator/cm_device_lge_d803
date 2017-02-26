@@ -17,7 +17,11 @@
 
 include device/lge/g2-common/BoardConfigCommon.mk
 
-TARGET_KERNEL_CONFIG := lineageos_d803_defconfig
+ifeq ($(WITH_TWRP),true)
+    TARGET_KERNEL_CONFIG := twrp_d803_defconfig
+else
+    TARGET_KERNEL_CONFIG := lineageos_d803_defconfig
+endif
 
 TARGET_OTA_ASSERT_DEVICE := d803,g2,galbi,d802
 
